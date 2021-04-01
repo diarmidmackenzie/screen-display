@@ -101,6 +101,22 @@ AFRAME.registerComponent('screen-display', {
     y3DScale = fovHeight * this.yscalepercent / 100
 
     this.el.object3D.scale.set(x3DScale, y3DScale, this.data.zscale)
+  },
+
+  tick: function() {
+
+    const screenwidth = window.innerWidth ||
+                        document.documentElement.clientWidth ||
+                        document.body.clientWidth;
+
+    const screenheight = window.innerHeight ||
+                         document.documentElement.clientHeight ||
+                         document.body.clientHeight;
+
+    if ((this.screenwidth !== screenwidth) ||
+        (this.screenheight !== screenheight)) {
+      this.update()
+    }
   }
 
 });

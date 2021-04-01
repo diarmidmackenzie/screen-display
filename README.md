@@ -18,7 +18,6 @@ This component is still under development.  Particular areas that still need wor
 - The component makes assumptions about some configurable attributes of the camera.   In particular the fov and zoom attributes are assumed to be set at their default values.  If these are changed, things won't adapt as we'd like.  Would be nice to fix that.
 - A better story on z-axis scaling.  Probably we should extend "keepaspect" function to the z-axis, but exactly how we do this needs some thought
 - Testing in real-world applications that want to use this component, to see whether the provided interface is useful, and meets requirements.
-- Positions of elements are not adjusted when screen dimensions change.  That is something that could be added.
 - And probably some more...
 
 
