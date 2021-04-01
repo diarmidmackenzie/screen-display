@@ -54,7 +54,7 @@ AFRAME.registerComponent('screen-display', {
     // Set up scale, based on configuration.
     // Swt up height & width first.
     // Then rewrite height if we need to preserve aspect ratio.
-    switch (this.data.position) {
+    switch (this.data.scale) {
       case "percent":
         this.xscalepercent = this.data.width;
         this.yscalepercent = this.data.height;
