@@ -11,21 +11,21 @@
   <body>
     <a-scene background="color: #ECECEC">
       <a-camera look-controls wasd-controls>
-        <a-plane screen-display="xpos:10; ypos:10;width:10"
+        <a-plane screen-display="position:pixels; xpos:100; ypos:100; scale: pixels; width:200"
                  material="color: blue">
-          <a-text value="x:10%\ny:10%\nw:10%\nh:lock" align="center" color="white" z-offset="0.000001">
+          <a-text value="x:100\ny:100px\nw:200px\nh:lock" align="center" color="white" z-offset="0.000001">
         </a-plane>
-        <a-plane screen-display="xpos:30; ypos:20;width:20"
+        <a-plane screen-display="position:pixels; xpos:400; ypos:200; scale: pixels; keepaspect: false; width:200; height:400"
                  material="color: red">
-          <a-text value="x:30%\ny:20%\nw:20%\nh:lock" scale = "0.5 0.5 1" align="center" color="white" z-offset="0.000001">
+          <a-text value="x:400px\ny:200px\nw:200px\nh:400px" scale = "1 0.5 1" align="center" color="white" z-offset="0.000001">
         </a-plane>
-        <a-plane screen-display="xpos:80; ypos:10;width:10;keepaspect:false;height:20"
+        <a-plane screen-display="position:pixels; scale: pixels; xpos:800; ypos:300;width:100"
                  material="color: green">
-          <a-text value="x:80%\ny:10%\nw:10%\nh:20%" align="center" color="white" z-offset="0.000001">
+          <a-text value="x:800px\ny:300px\nw:100px\nh:lock" align="center" color="white" z-offset="0.000001">
         </a-plane>
-        <a-plane screen-display="xpos:50; ypos:50;width:20;keepaspect:false;height:10"
+        <a-plane screen-display="position:pixels; scale: pixels; xpos:500; ypos:500;width:1000;keepaspect:false;height:100"
                  material="color: magenta">
-          <a-text value="x:50%\ny:50%\nw:20%\nh:10%" scale = "0.5 1 1" align="center" color="white" z-offset="0.000001">
+          <a-text value="x:500px\ny:500px\nw:1000px\nh:100px" scale = "0.3 1 1" align="center" color="white" z-offset="0.000001">
         </a-plane>
       </a-camera>
       <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9" shadow></a-box>
