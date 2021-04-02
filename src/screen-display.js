@@ -15,7 +15,7 @@ AFRAME.registerComponent('screen-display', {
     keepaspect: {type: 'boolean', default: true},
     width: {type: 'number', default: 10},
     height: {type: 'number'},
-    zscale: {type: 'number', default: 1},
+    zscale: {type: 'number'},
     zdist: {type: 'number', default: 0.01},
   },
 
@@ -74,9 +74,14 @@ AFRAME.registerComponent('screen-display', {
       // Set height based on width.
       this.yscalepercent = this.xscalepercent * this.screenwidth / this.screenheight;
 
-
       if (this.data.height) {
         console.warn(`Height being ignored, since "keepaspect" is set.`)
+      }
+    }
+    else
+    {
+      if (!this.data.height) {
+        console.warn(`"keepaspect" is not set, so height is required, but none provided.`)
       }
     }
 
@@ -97,10 +102,21 @@ AFRAME.registerComponent('screen-display', {
 
     this.el.object3D.position.set(x3DPos, y3DPos, -this.data.zdist)
 
-    x3DScale = fovWidth * this.xscalepercent / 100
-    y3DScale = fovHeight * this.yscalepercent / 100
+    const x3DScale = fovWidth * this.xscalepercent / 100
+    const y3DScale = fovHeight * this.yscalepercent / 100
 
-    this.el.object3D.scale.set(x3DScale, y3DScale, this.data.zscale)
+    // zscale value depends whether keepaspect is set.
+    // if it is not set, zscale parameter provides the percentage of the z-distance
+    // to be used as the depth of the object.
+    var z3DScale = this.data.zscale * this.data.zdist / 100;
+    if (this.data.keepaspect) {
+      z3DScale = x3DScale;
+    }
+    else if (!this.data.zscale) {
+      console.warn(`"keepaspect" is not set, so zscale is required, but none provided.`)
+    }
+
+    this.el.object3D.scale.set(x3DScale, y3DScale, z3DScale)
   },
 
   tick: function() {

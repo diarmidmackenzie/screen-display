@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Example usage of screen-position component - 3D objects</title>
+    <meta name="description" content="Example usage of screen-position component - 3D objects">
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="../src/screen-display.js"></script>
+  </head>
+  <body>
+    <a-scene background="color: #ECECEC">
+      <a-camera look-controls wasd-controls>
+        <a-box screen-display="xpos:40; ypos:30;width:10"
+               rotation = "30 45 0"
+                 material="color: blue">
+        </a-box>
+        <a-text screen-display="xpos:40; ypos:60;width:10"
+                value="x:40%, y:30%\nw:10%, h:lock, d:lock" align="center" color="black" z-offset="0.000001">
+        </a-text>
+        <a-sphere screen-display="xpos:60; ypos:60;width:5"
+                 material="color: red">
+        </a-sphere>
+        <a-text screen-display="xpos:60; ypos:80;width:10"
+                value="x:60%, y:60%\nw:5%, h:lock, d:lock" align="center" color="black" z-offset="0.000001">
+        </a-text>
+        <a-sphere screen-display="xpos:40; ypos:70;keepaspect:false;width:5;height:5;zscale:50;zdist:0.1"
+                 material="color: red">
+        </a-sphere>
+        <a-text screen-display="xpos:40; ypos:90;width:10"
+                value="x:40%, y:70%\nw:5%, h:5%, d:50%\n(stretched on z-axis)" align="center" color="black" z-offset="0.000001">
+        </a-text>
+
+      </a-camera>
+      <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9" shadow></a-box>
+      <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E" shadow></a-sphere>
+      <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D" shadow></a-cylinder>
+      <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4" shadow></a-plane>
+    </a-scene>
+    <!-- include the Glitch button to show what the webpage is about and
+          to make it easier for folks to view source and remix -->
+    <div class="glitchButton" style="position:fixed;top:20px;right:20px;"></div>
+    <script src="https://button.glitch.me/button.js" defer></script>
+
+  </body>
+</html>

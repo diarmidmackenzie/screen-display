@@ -16,7 +16,6 @@ This component is still under development.  Particular areas that still need wor
 - More examples to illustrate the full range of capabilities of the component interface.
 - More testing (and probably bug fixing!)  especially on mobile devices (only tested on desktop so far)
 - The component makes assumptions about some configurable attributes of the camera.   In particular the fov and zoom attributes are assumed to be set at their default values.  If these are changed, things won't adapt as we'd like.  Would be nice to fix that.
-- A better story on z-axis scaling.  Probably we should extend "keepaspect" function to the z-axis, but exactly how we do this needs some thought
 - Testing in real-world applications that want to use this component, to see whether the provided interface is useful, and meets requirements.
 - And probably some more...
 
@@ -66,9 +65,9 @@ The following attributes are supported on the screen-display component:
 
 - width: The screen width taken up by 1m of object width.  In "percent" mode, this is the proportion of the screen width that should be taken up by 1m of object width.  In "pixels" mode, this is the width of 1m of object width, in CSS pixels.  Default value: 10 (percent)
 
-- height: The screen height taken up by 1m of object height.  In "percent" mode, this is the proportion of the screen height that should be taken up by 1m of object height.  In "pixels" mode, this is the height of 1m of object height in CSS pixels.  This attribute is ignored if "keepaspect" is set to true.  No default value (by default, "keepaspect" is true).
+- height: The screen height taken up by 1m of object height.  In "percent" mode, this is the proportion of the screen height that should be taken up by 1m of object height.  In "pixels" mode, this is the height of 1m of object height in CSS pixels.  This attribute is ignored if "keepaspect" is set to true.  No default value (by default, "keepaspect" is true), but if "keepaspect" is false a value must be supplied, or the object will have no height.
 
-- zscale: A z scale factor applied to the object.  This value is applied directly to the object, regardless of what X & Y scaling are happening.  Note that "keepaspect" does not apply to the z-axis scaling of the object, which is controlled entirely by this attribute.  Default value is 1 (no scaling).
+- zscale: The percentage of the distance from the camera to the object taken up by 1m of the object.  If "keepaspect" is set, this is ignored, and the object depth is just scaled in line with x and y.  If this is set to 100, then a 1m x 1m x 1m object will fill 50% of the distance from the camera to the object position.  With the default values for zdist and camera "near" attribute, this will lead to parts of the shape disappearing as they pass the near clipping plane of the camera frustrum.  To avoid this, increase zdist, reduce the "near" attribute on the camera, or simply reduce the depth of the object (i.e. reduce zscale).  No default value (by default, "keepaspect" is true), but if "keepaspect" is false a value must be supplied, or the object will have no depth.
 
 - zdist: The distance from the camera at which the object should be rendered.  The default value of 0.01 (i.e. 1cm) should be fine for most purposes.  Do not set this below 0.005 (5mm) without also adjusting the "near" attribute on the camera, which sets the near clipping plane of the camera frustrum, or objects will mysteriously disappear due to frustrum culling.  See: https://aframe.io/docs/1.2.0/components/camera.html#properties_near
 

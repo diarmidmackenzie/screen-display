@@ -3,8 +3,8 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Hello, WebVR! • A-Frame</title>
-    <meta name="description" content="Hello, WebVR! • A-Frame">
+    <title>Example usage of screen-position component - Sizes and positions as % of screen.</title>
+    <meta name="description" content="Example usage of screen-position component - Sizes and positions as % of screen.">
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script src="../src/screen-display.js"></script>
   </head>
@@ -19,11 +19,11 @@
                  material="color: red">
           <a-text value="x:30%\ny:20%\nw:20%\nh:lock" scale = "0.5 0.5 1" align="center" color="white" z-offset="0.000001">
         </a-plane>
-        <a-plane screen-display="xpos:80; ypos:10;width:10;keepaspect:false;height:20"
+        <a-plane screen-display="xpos:80; ypos:10;width:10;keepaspect:false;height:20;zscale:50"
                  material="color: green">
           <a-text value="x:80%\ny:10%\nw:10%\nh:20%" align="center" color="white" z-offset="0.000001">
         </a-plane>
-        <a-plane screen-display="xpos:50; ypos:50;width:20;keepaspect:false;height:10"
+        <a-plane screen-display="xpos:50; ypos:50;width:20;keepaspect:false;height:10;zscale:50"
                  material="color: magenta">
           <a-text value="x:50%\ny:50%\nw:20%\nh:10%" scale = "0.5 1 1" align="center" color="white" z-offset="0.000001">
         </a-plane>

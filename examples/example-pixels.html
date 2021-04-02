@@ -3,8 +3,8 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Hello, WebVR! • A-Frame</title>
-    <meta name="description" content="Hello, WebVR! • A-Frame">
+    <title>Example usage of screen-position component - Fixed positions & sizes in pixels</title>
+    <meta name="description" content="Example usage of screen-position component - Fixed positions & sizes in pixels">
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script src="../src/screen-display.js"></script>
   </head>
@@ -15,7 +15,7 @@
                  material="color: blue">
           <a-text value="x:100px\ny:100px\nw:200px\nh:lock" align="center" color="white" z-offset="0.000001">
         </a-plane>
-        <a-plane screen-display="position:pixels; xpos:400; ypos:200; scale: pixels; keepaspect: false; width:200; height:400"
+        <a-plane screen-display="position:pixels; xpos:400; ypos:200; scale: pixels; keepaspect: false; width:200; height:400;zscale:50"
                  material="color: red">
           <a-text value="x:400px\ny:200px\nw:200px\nh:400px" scale = "1 0.5 1" align="center" color="white" z-offset="0.000001">
         </a-plane>
@@ -23,7 +23,7 @@
                  material="color: green">
           <a-text value="x:800px\ny:300px\nw:100px\nh:lock" align="center" color="white" z-offset="0.000001">
         </a-plane>
-        <a-plane screen-display="position:pixels; scale: pixels; xpos:500; ypos:500;width:1000;keepaspect:false;height:100"
+        <a-plane screen-display="position:pixels; scale: pixels; xpos:500; ypos:500;width:1000;keepaspect:false;height:100;zscale:50"
                  material="color: magenta">
           <a-text value="x:500px\ny:500px\nw:1000px\nh:100px" scale = "0.3 1 1" align="center" color="white" z-offset="0.000001">
         </a-plane>
