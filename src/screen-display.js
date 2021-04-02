@@ -19,10 +19,6 @@ AFRAME.registerComponent('screen-display', {
     zdist: {type: 'number', default: 0.01},
   },
 
-  init: function () {
-
-  },
-
   update: function() {
     // Get screen size
     // See: https://www.w3schools.com/jsref/prop_win_innerheight.asp
@@ -135,4 +131,38 @@ AFRAME.registerComponent('screen-display', {
     }
   }
 
+});
+
+/* Workarounds for the fact that components like event-set
+ * and animation cannot
+ * set properties on components that include dashes
+ * in their names.
+ * This component wraps up the screeen-display component
+ * in a new component with no dashes in its name.  */
+AFRAME.registerComponent('screendisplay', {
+
+  schema : {
+    position: {type: 'string', default: "percent"},
+    xpos: {type: 'number', default: 50},
+    ypos: {type: 'number', default: 50},
+    scale: {type: 'string', default: "percent"},
+    keepaspect: {type: 'boolean', default: true},
+    width: {type: 'number', default: 10},
+    height: {type: 'number'},
+    zscale: {type: 'number'},
+    zdist: {type: 'number', default: 0.01},
+  },
+
+  update: function () {
+    this.el.setAttribute("screen-display",
+                          {position: this.data.position,
+                           xpos: this.data.xpos,
+                           ypos: this.data.ypos,
+                           scale: this.data.scale,
+                           keepaspect: this.data.keepaspect,
+                           width: this.data.width,
+                           height: this.data.height,
+                           zscale: this.data.zscale,
+                           zdist: this.data.zdist});
+  }
 });
