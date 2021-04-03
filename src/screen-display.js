@@ -133,10 +133,9 @@ AFRAME.registerComponent('screen-display', {
 
 });
 
-/* Workarounds for the fact that components like event-set
- * and animation cannot
- * set properties on components that include dashes
- * in their names.
+/* Workarounds for the fact that the "event-set" components
+ * cannot set properties on components that include dashes
+ * in their names.  See: https://github.com/supermedium/superframe/issues/296
  * This component wraps up the screeen-display component
  * in a new component with no dashes in its name.  */
 AFRAME.registerComponent('screendisplay', {
