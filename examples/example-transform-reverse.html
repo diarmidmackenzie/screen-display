@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Example usage of blend-transforms component.</title>
+    <meta name="description" content="Example usage of inherit-transform component.">
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="../src/screen-display.js"></script>
+    <script src="../src/blend-transforms.js"></script>
+  </head>
+  <body>
+    <a-scene background="color: #ECECEC">
+      <a-camera look-controls wasd-controls>
+        <a-plane id="onscreen" screen-display="xpos:10; ypos:10;width:10"
+                 material="color: blue"
+                 visible = false>
+        </a-plane>
+      </a-camera>
+      <a-plane position="0 0 -4" rotation="-90 0 0" scale = "4 4 4" color="#7BC8A4">
+        <a-plane id="onplane" position = "-0.4 -0.4 0.0001" scale = "0.1 0.1 0.1"
+                 material="color: blue"
+                 visible = false>
+        </a-plane>
+      </a-plane>
+
+      <a-plane blend-transforms="objectA:#onscreen;objectB:#onplane;percentage:100"
+               material="color: blue"
+               animation="property: blend-transforms.percentage; to: 0; delay: 1000; dur: 5000; easing: easeOutCubic; loop: true">
+      </a-plane>
+    </a-scene>
+  </body>
+</html>

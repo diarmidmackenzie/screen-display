@@ -1,4 +1,10 @@
+This README covers two A-Frame components:
+
+- screen-display - used to position an object in a fixed position on screen
+- blend-transforms - used to position an object with a weighted blend of two different objects' position, scale & rotation.
+
 # screen-display
+
 This component can be used to position elements directly on screen in A-Frame.
 
 Given that every object in an A-Frame scene must exist in 3D space, this is in fact achieved by positioning the objects extremely close to the camera, and adjusting the scale and position appropriately.
@@ -7,19 +13,13 @@ This component does the hard work of figuring out what "appropriately" means, al
 
 It also allows flexibility in whether or not aspect ratios are preserved.  See "Component Interface" for more details.
 
-
-
 ## Status
 
 This component is still under development.  Particular areas that still need work include:
 
 - More examples to illustrate the full range of capabilities of the component interface.
-- More testing (and probably bug fixing!)  especially on mobile devices (only tested on desktop so far)
 - The component makes assumptions about some configurable attributes of the camera.   In particular the fov and zoom attributes are assumed to be set at their default values.  If these are changed, things won't adapt as we'd like.  Would be nice to fix that.
-- Testing in real-world applications that want to use this component, to see whether the provided interface is useful, and meets requirements.
 - And probably some more...
-
-
 
 ## Installation
 
@@ -34,7 +34,7 @@ You can download it and include it like this:
 Or via JSDelivr CDN
 
 ```
-<script src="https://cdn.jsdelivr.net/gh/diarmidmackenzie/instanced-mesh@latest/src/screen-display.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/diarmidmackenzie/screen-display@latest/src/screen-display.min.js"></script>
 ```
 
 ## Usage Guidelines
@@ -46,8 +46,6 @@ If you set it on other objects, it will move & scale the objects in unexpected w
 If you set the screen-display component on an object, *do not* set the position or scale attributes 
 
 See the examples folder for some examples of how to use the component, or read the detailed interface documentation below.
-
-
 
 ## Component Interface
 
@@ -71,7 +69,6 @@ The following attributes are supported on the screen-display component:
 
 - zdist: The distance from the camera at which the object should be rendered.  The default value of 0.01 (i.e. 1cm) should be fine for most purposes.  Do not set this below 0.005 (5mm) without also adjusting the "near" attribute on the camera, which sets the near clipping plane of the camera frustrum, or objects will mysteriously disappear due to frustrum culling.  See: https://aframe.io/docs/1.2.0/components/camera.html#properties_near
 
-  
 
 ## Other Notes
 
@@ -86,4 +83,66 @@ To workaround this, set the zOffset attribute on the text component to a much sm
 See the examples folder for some examples of this.
 
 
+
+# blend-transforms
+
+This is a companion component to screen-display, which supports giving an object a transform (i.e. position, rotation & scale) that is a weighted blend of two different object transforms (we call these "anchors")
+
+The can be used in combination with the animation component to smoothly move objects from a position on screen to a position in the 3D world, and vice-versa.
+
+See examples:
+
+- example-transform.html
+- example-transform-reverse.html
+
+## Status
+
+This component is pretty new.  It has been used in one application and performed well, but may hit problems in novel situations.
+
+It explicitly can handle:
+
+- Working in combination with screen-display for AR applications.
+- Movement of the anchor objects whose transform is blended - the object that blends their transforms will dynamically update its own transform in response to these movements.
+
+Currently, scale, position & rotation are all controlled by a single parameter - more flexibility may be desirable in future - see "Other Notes" below for an explanation why.
+
+## Installation
+
+You will need the screen-display javascript module from this repository.
+
+You can download it and include it like this:
+
+```
+<script src="blend-transforms.js"></script>
+```
+
+Or via JSDelivr CDN
+
+```
+<script src="https://cdn.jsdelivr.net/gh/diarmidmackenzie/screen-display@latest/src/bled-transforms.min.js"></script>
+```
+
+## Usage Guidelines
+
+See the examples folder for some examples of how to use the component, including examples of how to combine it with the animation component.
+
+Typically, you will set up two invisible anchor objects, and then refer to them from the component that you wish to position with a blend of their transforms.
+
+## Component Interface
+
+The following attributes are supported on the blend-transforms component:
+
+- objectA: A selector for the first object whose transform is to be blended.
+- objectB: A selector for the second object whose transform is to be blended.
+- percentage: The percentage of the transform to be taken from object B.  The remaining percentage will be taken from Object A.  The default value is 0, which will lead to the object being positioned at the position of object A.  When this is set to 100, the object will be positioned at the position of object B.
+
+## Other Notes
+
+Position, scale and rotation are all weighted linearly, using the configured percentage.
+
+This may lead to unexpected behaviour when using this component in combination with screen-display.  Although the object may be moving linearly in space, if it starts far from the camera, and ends up close to it, then it may appear to be moving slowly at the start, and very fast at the end.
+
+This effect can be compensates for by using a non-linear easing function in the animation (e.g. quadratic or cubic).  However, while that might "correct"the apparent rate of positional change, it will also make the rotation speed non-linear, which may look odd.
+
+In future, I hope to to enhance this component to allow options for independent control of each of rotation, position and scale.
 
