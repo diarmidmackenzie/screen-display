@@ -45,7 +45,12 @@ If you set it on other objects, it will move & scale the objects in unexpected w
 
 If you set the screen-display component on an object, *do not* set the position or scale attributes 
 
-See the examples folder for some examples of how to use the component, or read the detailed interface documentation below.
+See the examples  for some examples of how to use the component, or read the detailed interface documentation below.
+
+- [3D objects](https://diarmidmackenzie.github.io/screen-display/examples/example-3D-objects.html)
+- [Position by percentage](https://diarmidmackenzie.github.io/screen-display/examples/example-percent.html)
+- [Position by pixels](https://diarmidmackenzie.github.io/screen-display/examples/example-pixels.html)
+- [Animation](https://diarmidmackenzie.github.io/screen-display/examples/example-animation.html)
 
 ## Component Interface
 
@@ -92,8 +97,8 @@ The can be used in combination with the animation component to smoothly move obj
 
 See examples:
 
-- example-transform.html
-- example-transform-reverse.html
+- [From screen to 3D world](https://diarmidmackenzie.github.io/screen-display/examples/example-transform.html)
+- [From 3D world to screen](https://diarmidmackenzie.github.io/screen-display/examples/example-transform-reverse.html)
 
 ## Status
 
