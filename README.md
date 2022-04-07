@@ -124,7 +124,7 @@ You can download it and include it like this:
 Or via JSDelivr CDN
 
 ```
-<script src="https://cdn.jsdelivr.net/gh/diarmidmackenzie/screen-display@latest/src/bled-transforms.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/diarmidmackenzie/screen-display@latest/src/blend-transforms.min.js"></script>
 ```
 
 ## Usage Guidelines
