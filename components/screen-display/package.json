@@ -1,0 +1,23 @@
+{
+  "name": "aframe-screen-display",
+  "version": "0.1.1",
+  "description": "Set on an entity to track the orientation of the cursor's ray.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/diarmidmackenzie/screen-display/tree/main/components/screen-display"
+  },
+  "keywords": [
+    "A-Frame",
+    "Cursor"
+  ],
+  "bugs": {
+    "url": "https://github.com/diarmidmackenzie/aframe-components/issues"
+  },
+  "homepage": "https://diarmidmackenzie.github.io/screen-display/components/screen-display#readme",
+  "author": "Diarmid Mackenzie",
+  "license": "MIT"
+}
