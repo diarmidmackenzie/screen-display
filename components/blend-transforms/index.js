@@ -1,11 +1,3 @@
-/* This file exists for legacy reasons, to support people who 
-   are importing this via CDN from:
-   https://cdn.jsdelivr.net/gh/diarmidmackenzie/screen-display@latest/src/blend-transforms.min.js
-   (as recommended in earlier versions of the docs)
-   It's no longer maintained.
-   For the latest maintained version check the README in /components/blend-transforms/
-*/
-
 AFRAME.registerComponent('blend-transforms', {
 
   schema: {

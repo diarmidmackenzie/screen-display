@@ -1,11 +1,3 @@
-/* This file exists for legacy reasons, to support people who 
-   are importing this via CDN from:
-   https://cdn.jsdelivr.net/gh/diarmidmackenzie/screen-display@latest/src/screen-display.min.js
-   (as recommended in earlier versions of the docs)
-   It's no longer maintained.
-   For the latest maintained version check the README in /components/screen-display/
-*/
-
 /* xpos & ypos approximately like CSS px
  * zdist is units in m.  Dfeault is 1cm.  Don't set below 0.5cm,
  * or you will hit the default near clipping plane on the camera.

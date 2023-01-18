@@ -1,0 +1,23 @@
+{
+  "name": "aframe-blend-transforms",
+  "version": "0.1.1",
+  "description": "Set on an entity to track the orientation of the cursor's ray.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/diarmidmackenzie/screen-display/tree/main/components/blend-transforms"
+  },
+  "keywords": [
+    "A-Frame",
+    "Cursor"
+  ],
+  "bugs": {
+    "url": "https://github.com/diarmidmackenzie/aframe-components/issues"
+  },
+  "homepage": "https://diarmidmackenzie.github.io/screen-display/components/blend-transforms#readme",
+  "author": "Diarmid Mackenzie",
+  "license": "MIT"
+}
