@@ -1,7 +1,7 @@
 {
   "name": "aframe-blend-transforms",
-  "version": "0.1.1",
-  "description": "Set on an entity to track the orientation of the cursor's ray.",
+  "version": "0.1.2",
+  "description": "Give an A-Frame object a transform (i.e. position, rotation & scale) that is a weighted blend of two different object transforms.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

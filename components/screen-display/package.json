@@ -1,7 +1,7 @@
 {
   "name": "aframe-screen-display",
-  "version": "0.1.1",
-  "description": "Set on an entity to track the orientation of the cursor's ray.",
+  "version": "0.1.2",
+  "description": "Position elements directly on screen in A-Frame..",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
